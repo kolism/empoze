@@ -12,10 +12,34 @@ body {
 body {
   line-height: 1.4;
   background: #020001;
-  color: #f4f4f4;
+
   font-size: 16px;
   font-weight: 300;
   font-family: "Abel", "Avenir", "Avenir Next", "Gill Sans / Gill Sans MT",
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: #03a9f4;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #f5f5f5;
+}
+
+a {
+  font-size: 16px;
+}
+
+a.larger {
+  font-size: 27.6px;
+}
+
+@media (max-width: 768px) {
+  a {
+    font-size: 27.12px !important;
+  }
 }

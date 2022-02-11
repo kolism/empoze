@@ -12,7 +12,7 @@ fs.readdirSync("node_modules")
   });
 
 module.exports = {
-  entry: "./index.js",
+  entry: ["regenerator-runtime/runtime.js", "./index.js"],
   target: "node",
   output: {
     path: __dirname + "/deploy",

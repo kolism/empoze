@@ -1,32 +1,31 @@
-var fs = require("fs");
-var React = require("react");
-var ReactDOMServer = require("react-dom/server");
-var pkg = (packageJSON = require("./package.json"));
+const fs = require("fs");
+const React = require("react");
+const ReactDOMServer = require("react-dom/server");
+const pkg = (packageJSON = require("./package.json"));
+const juice = require("juice");
+const MailComponent = require("./components/html.js");
 
-const DIST_DIR = `./${pkg.config.dist}/`;
+const DEPLOY_DIR = `./${pkg.config.deploy}/`;
 const FILE_NAME = `email.html`;
-
-const MailComponent = (props) => {
-  return (
-    <html>
-      {/* <meta name="color-scheme" content="only"></meta> */}
-      <head>
-        <link href="custom.css" rel="stylesheet" data-inline />
-      </head>
-      <body>
-        <div className="bg-slate-50">
-          <h1>Welcome to our mailing list!</h1>
-          <p className="text-sky-400/50">We are pleased to meet you</p>
-          <h2>Made with EMPOZE v{props.version} </h2>
-        </div>
-      </body>
-    </html>
-  );
-};
 
 const emailHtml = ReactDOMServer.renderToStaticMarkup(
   <MailComponent version={pkg.version} />
 );
 
-fs.writeFileSync(`${DIST_DIR}${FILE_NAME}`, emailHtml);
-console.log(`\x1b[32mEMPOZE\x1b[0m Email written to: ${DIST_DIR}${FILE_NAME}`);
+juice.juiceResources(
+  emailHtml,
+  {
+    webResources: {
+      relativeTo: "src/",
+    },
+  },
+  (err, processed) => {
+    if (err) {
+      new Error(`Could not juice email${err}`);
+    }
+    fs.writeFileSync(`${DEPLOY_DIR}${FILE_NAME}`, processed);
+    console.log(
+      `\x1b[32mEMPOZE\x1b[0m Email written to: ${DEPLOY_DIR}${FILE_NAME}`
+    );
+  }
+);
