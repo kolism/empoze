@@ -2,6 +2,7 @@ var fs = require("fs");
 var React = require("react");
 var ReactDOMServer = require("react-dom/server");
 
+const DIST_DIR = "./dist/";
 const FILE_NAME = "email.html";
 
 const MailComponent = () => {
@@ -19,5 +20,5 @@ const MailComponent = () => {
 
 const emailHtml = ReactDOMServer.renderToStaticMarkup(<MailComponent />);
 
-fs.writeFileSync(FILE_NAME, emailHtml);
-console.log(`\x1b[32mEMPOZE\x1b[0m Email written to: ${FILE_NAME}`);
+fs.writeFileSync(`${DIST_DIR}${FILE_NAME}`, emailHtml);
+console.log(`\x1b[32mEMPOZE\x1b[0m Email written to: ${DIST_DIR}${FILE_NAME}`);

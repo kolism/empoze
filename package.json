@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pack": "webpack"
+    "pack": "webpack",
+    "generate":"node ./deploy/app.js",
+    "build":"npm run pack && npm run generate"
   },
   "keywords": [
     "email",
