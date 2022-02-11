@@ -1,8 +1,11 @@
 # 📨Empoze
- Compose react + tailwind emails! Create single HTML string from your react components.
+ Compose responsive emails with React & Tailwind! Create single HTML string from your react components.
+
 
 Currently bundled for usage through NodeJS server (not web).
 
+*basic demo image (to be updated)*:
+<img  src="assets/demo1.png">
 
 This project takes react components, then:
 - determines tailwind class usage
