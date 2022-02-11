@@ -11,12 +11,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "webpack",
-    "css": "mailwind --input-html ./deploy/email.html --output-css ./dist/email.css",
-    "css-inline": "mailwind --input-html ./deploy/email.html --output-html ./dist/email.html",
+    "css": "mailwind --input-html ./deploy/email.html --output-css ./deploy/email.css",
     "deploy": "node ./deploy/app.js ",
-    "build": "npm run pack && npm run deploy",
-    "build-all": "npm run build && npm run css-inline && npm run build && npm run css-inline",
-    "prod": "npm run pack && npm run deploy && npm run css-inline"
+    "prod": "npm run pack && npm run deploy && npm run css && npm run deploy"
   },
   "keywords": [
     "email",

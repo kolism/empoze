@@ -16,7 +16,7 @@ juice.juiceResources(
   emailHtml,
   {
     webResources: {
-      relativeTo: "src/",
+      relativeTo: "./",
     },
   },
   (err, processed) => {
