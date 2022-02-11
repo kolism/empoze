@@ -1,0 +1,21 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.4;
+  background: #020001;
+  color: #f4f4f4;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: "Abel", "Avenir", "Avenir Next", "Gill Sans / Gill Sans MT",
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}

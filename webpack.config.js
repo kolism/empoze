@@ -18,6 +18,9 @@ module.exports = {
     path: __dirname + "/deploy",
     filename: "app.js",
   },
+  optimization: {
+    minimize: false,
+  },
   externals: nodeModules,
   module: {
     rules: [
